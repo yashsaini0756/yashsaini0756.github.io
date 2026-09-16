@@ -13,75 +13,37 @@
 <style>
 /* ============ TOKENS ============ */
 :root{
-  --bg:#f7f9fc;
-  --bg-2:#eef2f9;
-  --surface:#ffffff;
-  --surface-2:#f2f6fb;
-  --border:#e3e9f2;
-  --border-2:#d4dde9;
-  --text:#0b1220;
-  --text-2:#4a5568;
-  --muted:#7a8699;
-  --primary:#6366f1;
-  --primary-2:#4f46e5;
-  --blue:#3b82f6;
-  --cyan:#06b6d4;
-  --green:#10b981;
-  --pink:#ec4899;
-  --amber:#f59e0b;
-  --purple:#a855f7;
+  --bg:#f7f9fc;--bg-2:#eef2f9;--surface:#ffffff;--surface-2:#f2f6fb;
+  --border:#e3e9f2;--border-2:#d4dde9;
+  --text:#0b1220;--text-2:#4a5568;--muted:#7a8699;
+  --primary:#6366f1;--primary-2:#4f46e5;--blue:#3b82f6;--cyan:#06b6d4;
+  --green:#10b981;--pink:#ec4899;--amber:#f59e0b;--purple:#a855f7;
   --grad:linear-gradient(135deg,#6366f1 0%,#3b82f6 50%,#06b6d4 100%);
   --grad-warm:linear-gradient(135deg,#ec4899 0%,#f59e0b 100%);
-  --grad-cool:linear-gradient(135deg,#06b6d4 0%,#a855f7 100%);
   --shadow-xs:0 1px 2px rgba(15,23,42,.04);
   --shadow-sm:0 2px 10px rgba(15,23,42,.05);
   --shadow-md:0 10px 30px rgba(15,23,42,.08);
   --shadow-lg:0 20px 50px rgba(15,23,42,.12);
-  --heading:'Space Grotesk',sans-serif;
-  --body:'Inter',sans-serif;
-  --mono:'JetBrains Mono',monospace;
+  --heading:'Space Grotesk',sans-serif;--body:'Inter',sans-serif;--mono:'JetBrains Mono',monospace;
   --ease:cubic-bezier(.16,.84,.44,1);
 }
 [data-theme="dark"]{
-  --bg:#0a0f1c;
-  --bg-2:#0f172a;
-  --surface:#131c30;
-  --surface-2:#1a2540;
-  --border:#22304d;
-  --border-2:#2d3d5c;
-  --text:#e7ecf7;
-  --text-2:#b4c1d8;
-  --muted:#7d8aa3;
-  --shadow-sm:0 2px 10px rgba(0,0,0,.3);
-  --shadow-md:0 10px 30px rgba(0,0,0,.4);
-  --shadow-lg:0 20px 50px rgba(0,0,0,.5);
+  --bg:#0a0f1c;--bg-2:#0f172a;--surface:#131c30;--surface-2:#1a2540;
+  --border:#22304d;--border-2:#2d3d5c;--text:#e7ecf7;--text-2:#b4c1d8;--muted:#7d8aa3;
+  --shadow-sm:0 2px 10px rgba(0,0,0,.3);--shadow-md:0 10px 30px rgba(0,0,0,.4);--shadow-lg:0 20px 50px rgba(0,0,0,.5);
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
-body{
-  font-family:var(--body);
-  background:var(--bg);
-  color:var(--text);
-  line-height:1.6;
-  overflow-x:hidden;
-  position:relative;
-  -webkit-font-smoothing:antialiased;
-  transition:background .5s ease,color .5s ease;
-}
+body{font-family:var(--body);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;position:relative;-webkit-font-smoothing:antialiased;transition:background .5s ease,color .5s ease;}
 
-/* ============ MORPHING BLOBS ============ */
-.blob-container{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;filter:blur(90px);opacity:.55;}
+/* ============ BLOBS ============ */
+.blob-container{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;filter:blur(90px);opacity:.5;}
 .blob{position:absolute;border-radius:50%;mix-blend-mode:multiply;animation:blobMorph 20s ease-in-out infinite;}
 [data-theme="dark"] .blob{mix-blend-mode:screen;opacity:.5;}
-.blob.b1{width:45vw;height:45vw;background:radial-gradient(circle,#6366f1,transparent 70%);top:-10%;left:-10%;animation-delay:0s;}
+.blob.b1{width:45vw;height:45vw;background:radial-gradient(circle,#6366f1,transparent 70%);top:-10%;left:-10%;}
 .blob.b2{width:40vw;height:40vw;background:radial-gradient(circle,#06b6d4,transparent 70%);top:30%;right:-15%;animation-delay:-7s;}
 .blob.b3{width:38vw;height:38vw;background:radial-gradient(circle,#ec4899,transparent 70%);bottom:-15%;left:25%;animation-delay:-14s;}
-@keyframes blobMorph{
-  0%,100%{transform:translate(0,0) scale(1);border-radius:50%;}
-  25%{transform:translate(6vw,-4vw) scale(1.15);border-radius:42% 58% 60% 40%;}
-  50%{transform:translate(-5vw,7vw) scale(.9);border-radius:60% 40% 42% 58%;}
-  75%{transform:translate(4vw,5vw) scale(1.08);border-radius:48% 52% 55% 45%;}
-}
+@keyframes blobMorph{0%,100%{transform:translate(0,0) scale(1);border-radius:50%;}25%{transform:translate(6vw,-4vw) scale(1.15);border-radius:42% 58% 60% 40%;}50%{transform:translate(-5vw,7vw) scale(.9);border-radius:60% 40% 42% 58%;}75%{transform:translate(4vw,5vw) scale(1.08);border-radius:48% 52% 55% 45%;}}
 
 ::selection{background:var(--primary);color:#fff;}
 img,svg{max-width:100%;display:block;}
@@ -111,7 +73,6 @@ h1,h2,h3,h4{font-family:var(--heading);letter-spacing:-.02em;font-weight:700;col
 .pre-bar::after{content:'';position:absolute;top:0;left:-40%;width:40%;height:100%;background:linear-gradient(90deg,#6366f1,#06b6d4);border-radius:3px;animation:preSlide 1.1s ease-in-out infinite;}
 @keyframes preSlide{0%{left:-40%;}100%{left:100%;}}
 
-/* ============ SCROLL PROGRESS ============ */
 #progress{position:fixed;top:0;left:0;height:3px;width:0%;z-index:9998;background:linear-gradient(90deg,#6366f1,#3b82f6,#06b6d4,#ec4899);box-shadow:0 0 12px rgba(99,102,241,.5);transition:width .08s linear;}
 
 /* ============ XP BAR ============ */
@@ -277,9 +238,6 @@ body.focus-mode .blob-container{opacity:.15;filter:blur(120px);}
 [data-reveal="scale"]{transform:scale(.94);}
 [data-reveal].in{opacity:1;transform:translate(0) scale(1);}
 
-/* ============ TEXT SCRAMBLE ============ */
-.scramble{position:relative;}
-
 /* ============ ABOUT ============ */
 .about-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:56px;align-items:start;}
 @media(max-width:880px){.about-grid{grid-template-columns:1fr;gap:36px;}}
@@ -363,36 +321,13 @@ body.focus-mode .blob-container{opacity:.15;filter:blur(120px);}
 .term-out .link{color:#06b6d4;text-decoration:underline;}
 .term-input-line{display:flex;align-items:center;gap:6px;flex-wrap:wrap;}
 .term-input-line .prompt{color:#22c55e;font-weight:600;}
+.term-input-line .prompt::before{content:'➜ ';color:#6366f1;}
 .term-input-line .path{color:#06b6d4;}
 .term-input{flex:1;min-width:100px;background:transparent;border:none;outline:none;color:#e7ecf7;font-family:var(--mono);font-size:.86rem;caret-color:#22c55e;}
 @media(max-width:768px){.term-body{height:340px;padding:16px;font-size:.78rem;}}
 .term-hint{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;justify-content:center;}
 .term-hint button{background:var(--surface);border:1px solid var(--border);border-radius:99px;padding:7px 14px;font-family:var(--mono);font-size:.75rem;color:var(--text-2);cursor:pointer;transition:.3s var(--ease);box-shadow:var(--shadow-xs);}
 .term-hint button:hover{border-color:var(--primary);color:var(--primary);transform:translateY(-2px);}
-
-/* ============ CURRENTLY BUILDING ============ */
-.building-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;}
-@media(max-width:860px){.building-grid{grid-template-columns:1fr;}}
-.build-card{background:var(--surface);border:1px solid var(--border);border-radius:22px;padding:26px;box-shadow:var(--shadow-sm);transition:transform .4s var(--ease),box-shadow .4s var(--ease),border-color .4s;position:relative;overflow:hidden;}
-.build-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad);opacity:.85;}
-.build-card::after{content:'';position:absolute;top:-50px;right:-50px;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,var(--bc,#6366f1),transparent 70%);opacity:.1;pointer-events:none;}
-.build-card:hover{transform:translateY(-6px);border-color:rgba(99,102,241,.28);box-shadow:var(--shadow-lg);}
-.build-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px;}
-.build-badge{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:99px;font-family:var(--mono);font-size:.65rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;}
-.build-badge.dev{background:rgba(34,197,94,.1);color:#16a34a;border:1px solid rgba(34,197,94,.2);}
-.build-badge.dev::before{content:'';width:6px;height:6px;border-radius:50%;background:#22c55e;box-shadow:0 0 6px #22c55e;animation:pulseDot 1.5s infinite;}
-.build-badge.research{background:rgba(168,85,247,.1);color:#9333ea;border:1px solid rgba(168,85,247,.2);}
-.build-badge.research::before{content:'';width:6px;height:6px;border-radius:50%;background:#a855f7;}
-.build-card h4{font-size:1.1rem;margin-bottom:8px;display:flex;align-items:center;gap:10px;}
-.build-card h4 i{color:var(--primary);font-size:1rem;}
-.build-card p{color:var(--text-2);font-size:.9rem;margin-bottom:16px;}
-.build-progress{margin-bottom:16px;}
-.build-progress .bp-top{display:flex;justify-content:space-between;font-size:.75rem;color:var(--muted);margin-bottom:6px;font-weight:600;}
-.build-progress .bp-track{height:5px;background:var(--surface-2);border-radius:99px;overflow:hidden;}
-.build-progress .bp-fill{height:100%;border-radius:99px;background:var(--grad);width:0%;transition:width 1.5s var(--ease);}
-.build-progress .bp-fill.orange{background:var(--grad-warm);}
-.build-tags{display:flex;flex-wrap:wrap;gap:7px;}
-.build-tags span{font-size:.7rem;padding:5px 11px;border-radius:99px;background:rgba(99,102,241,.07);border:1px solid rgba(99,102,241,.15);color:var(--primary);font-weight:600;}
 
 /* ============ JOURNEY ============ */
 .timeline{position:relative;max-width:800px;margin:0 auto;}
@@ -406,22 +341,6 @@ body.focus-mode .blob-container{opacity:.15;filter:blur(120px);}
 .t-item h4{font-size:1.05rem;margin:6px 0 4px;}
 .t-item p{color:var(--text-2);font-size:.9rem;}
 .t-item p b{color:var(--cyan);font-weight:700;}
-
-/* ============ FAMILY ============ */
-.family-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
-@media(max-width:920px){.family-grid{grid-template-columns:repeat(2,1fr);}}
-@media(max-width:520px){.family-grid{grid-template-columns:1fr;}}
-.fam-card{background:var(--surface);border:1px solid var(--border);border-radius:22px;padding:28px 22px;text-align:center;transition:transform .4s var(--ease),box-shadow .4s var(--ease),border-color .4s;box-shadow:var(--shadow-sm);position:relative;overflow:hidden;}
-.fam-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:var(--grad-warm);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease);}
-.fam-card:hover::before{transform:scaleX(1);}
-.fam-card:hover{transform:translateY(-8px);border-color:rgba(236,72,153,.28);box-shadow:0 20px 50px rgba(236,72,153,.10);}
-.fam-avatar{width:70px;height:70px;border-radius:50%;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-family:var(--heading);font-weight:700;font-size:1.5rem;color:#fff;background:var(--grad-warm);box-shadow:0 10px 24px rgba(236,72,153,.25);transition:transform .5s var(--ease);}
-.fam-card:hover .fam-avatar{transform:scale(1.1) rotate(6deg);}
-.fam-card h4{font-size:1.02rem;margin-bottom:4px;}
-.fam-role{font-family:var(--mono);font-size:.65rem;color:var(--pink);text-transform:uppercase;letter-spacing:1.2px;font-weight:600;margin-bottom:10px;}
-.fam-card p{color:var(--text-2);font-size:.85rem;}
-.family-note{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--green);border-radius:14px;padding:20px 24px;margin-top:32px;color:var(--text-2);font-size:.94rem;max-width:800px;box-shadow:var(--shadow-xs);}
-.family-note strong{color:var(--text);}
 
 /* ============ INTERESTS ============ */
 .interests{display:flex;flex-wrap:wrap;gap:10px;}
@@ -463,7 +382,6 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:40px
 .foot-social a.gh:hover{background:#0f172a;border-color:#0f172a;}
 .foot-social a.wa:hover{background:linear-gradient(135deg,#25d366,#128c7e);border-color:transparent;}
 .foot-social a.mail:hover{background:var(--grad);border-color:transparent;}
-.foot-social a.ph:hover{background:linear-gradient(135deg,#06b6d4,#3b82f6);border-color:transparent;}
 .foot-heart{color:var(--pink);display:inline-block;animation:beat 1.6s ease-in-out infinite;}
 @keyframes beat{0%,100%{transform:scale(1);}50%{transform:scale(1.2);}}
 
@@ -511,18 +429,15 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:40px
 </head>
 <body>
 
-<!-- Morphing blobs -->
 <div class="blob-container" aria-hidden="true">
   <div class="blob b1"></div>
   <div class="blob b2"></div>
   <div class="blob b3"></div>
 </div>
 
-<!-- Cursor -->
 <div class="cursor-dot"></div>
 <div class="cursor-ring"></div>
 
-<!-- Preloader -->
 <div id="preloader">
   <div class="pre-logo">Y</div>
   <div class="pre-text">Initializing</div>
@@ -531,7 +446,6 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:40px
 
 <div id="progress"></div>
 
-<!-- XP BAR -->
 <div class="xp-bar" id="xpBar">
   <span class="xp-lvl" id="xpLevel">1</span>
   <div class="xp-info">
@@ -540,7 +454,6 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:40px
   </div>
 </div>
 
-<!-- NAVBAR -->
 <header id="header">
   <div class="wrap">
     <nav>
@@ -552,9 +465,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:40px
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#terminal">Terminal</a></li>
-        <li><a href="#building">Building</a></li>
         <li><a href="#journey">Journey</a></li>
-        <li><a href="#family">Family</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
       <div class="nav-cta">
@@ -579,9 +490,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:40px
   <a href="#about">About</a>
   <a href="#skills">Skills</a>
   <a href="#terminal">Terminal</a>
-  <a href="#building">Building</a>
   <a href="#journey">Journey</a>
-  <a href="#family">Family</a>
   <a href="#contact">Contact</a>
 </div>
 
@@ -675,7 +584,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:40px
           <ul class="info-list">
             <li><span>Name</span><span>Yash Saini</span></li>
             <li><span>Education</span><span>Class 12 · Senior Secondary</span></li>
-            <li><span>Location</span><span>Barkat Nagar, Jaipur</span></li>
+            <li><span>Location</span><span>Jaipur, Rajasthan</span></li>
             <li><span>Current Role</span><span>Intern @ hiimx.com</span></li>
             <li><span>Country</span><span>India 🇮🇳</span></li>
             <li><span>Focus</span><span>Web Dev + AI</span></li>
@@ -796,87 +705,9 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:40px
       <button data-cmd="skills">skills</button>
       <button data-cmd="experience">experience</button>
       <button data-cmd="contact">contact</button>
-      <button data-cmd="family">family</button>
       <button data-cmd="joke">joke</button>
       <button data-cmd="sudo hire yash">sudo hire yash</button>
       <button data-cmd="clear">clear</button>
-    </div>
-  </div>
-</section>
-
-<!-- CURRENTLY BUILDING -->
-<section class="section" id="building" data-achievement="In Progress">
-  <div class="wrap">
-    <div data-reveal>
-      <span class="eyebrow">Live Status</span>
-      <h2 class="section-title" data-scramble="What I'm building now">Currently <span>building</span></h2>
-      <p class="section-sub">Real-time progress on projects I'm actively working on right now.</p>
-    </div>
-
-    <div class="building-grid">
-      <div class="build-card" style="--bc:#6366f1;" data-reveal="scale">
-        <div class="build-head">
-          <span class="build-badge dev">Active Dev</span>
-          <span style="font-family:var(--mono);font-size:.7rem;color:var(--muted)">Gama v0.4</span>
-        </div>
-        <h4><i class="fas fa-robot"></i> Gama — Personal AI Assistant</h4>
-        <p>A voice-first AI assistant for Android. Wake-word activation, Gemini integration, offline knowledge, animated orb UI, and full voice control over WhatsApp, calls, and alarms.</p>
-        <div class="build-progress">
-          <div class="bp-top"><span>Progress</span><span>72%</span></div>
-          <div class="bp-track"><div class="bp-fill" data-w="72"></div></div>
-        </div>
-        <div class="build-tags">
-          <span>Kotlin</span><span>Gemini AI</span><span>Voice</span><span>Vision AI</span>
-        </div>
-      </div>
-
-      <div class="build-card" style="--bc:#10b981;" data-reveal="scale">
-        <div class="build-head">
-          <span class="build-badge dev">Active Dev</span>
-          <span style="font-family:var(--mono);font-size:.7rem;color:var(--muted)">WRG v0.2</span>
-        </div>
-        <h4><i class="fab fa-whatsapp"></i> WhatsApp Reply Genius</h4>
-        <p>AI assistant that reads incoming WhatsApp notifications and suggests natural replies — Hinglish, professional, funny, and casual — using NotificationListenerService.</p>
-        <div class="build-progress">
-          <div class="bp-top"><span>Progress</span><span>55%</span></div>
-          <div class="bp-track"><div class="bp-fill" data-w="55"></div></div>
-        </div>
-        <div class="build-tags">
-          <span>Kotlin</span><span>NotificationListener</span><span>LLM</span>
-        </div>
-      </div>
-
-      <div class="build-card" style="--bc:#f59e0b;" data-reveal="scale">
-        <div class="build-head">
-          <span class="build-badge research">Exploring</span>
-          <span style="font-family:var(--mono);font-size:.7rem;color:var(--muted)">R&D</span>
-        </div>
-        <h4><i class="fas fa-brain"></i> Vision + Memory for Gama</h4>
-        <p>Teaching Gama to see the world via camera and remember conversations long-term. Building a local memory system + camera-based object recognition.</p>
-        <div class="build-progress">
-          <div class="bp-top"><span>Research</span><span>30%</span></div>
-          <div class="bp-track"><div class="bp-fill orange" data-w="30"></div></div>
-        </div>
-        <div class="build-tags">
-          <span>Vision API</span><span>Local DB</span><span>Memory</span>
-        </div>
-      </div>
-
-      <div class="build-card" style="--bc:#a855f7;" data-reveal="scale">
-        <div class="build-head">
-          <span class="build-badge research">Learning</span>
-          <span style="font-family:var(--mono);font-size:.7rem;color:var(--muted)">Ongoing</span>
-        </div>
-        <h4><i class="fas fa-graduation-cap"></i> Modern Web Dev Deep Dive</h4>
-        <p>Leveling up on modern JavaScript patterns, advanced CSS animations, and building production-ready full-stack projects alongside school.</p>
-        <div class="build-progress">
-          <div class="bp-top"><span>Self-paced</span><span>60%</span></div>
-          <div class="bp-track"><div class="bp-fill" data-w="60"></div></div>
-        </div>
-        <div class="build-tags">
-          <span>JavaScript</span><span>CSS</span><span>Full-Stack</span>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -919,48 +750,6 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:40px
   </div>
 </section>
 
-<!-- FAMILY -->
-<section class="section" id="family" data-achievement="Family First">
-  <div class="wrap">
-    <div data-reveal>
-      <span class="eyebrow">Family</span>
-      <h2 class="section-title" data-scramble="My Family">The people behind <span>my journey</span></h2>
-      <p class="section-sub">My biggest support system — a family that stays aware and serious about my future.</p>
-    </div>
-
-    <div class="family-grid">
-      <div class="fam-card" data-reveal="scale">
-        <div class="fam-avatar">A</div>
-        <h4>Amar Chand Saini</h4>
-        <div class="fam-role">Father</div>
-        <p>Works as a mechanic — repairs cycles &amp; bikes. Hardworking hands behind our home.</p>
-      </div>
-      <div class="fam-card" data-reveal="scale">
-        <div class="fam-avatar">L</div>
-        <h4>Lata Saini</h4>
-        <div class="fam-role">Mother</div>
-        <p>Homemaker — manages and holds our entire family together every single day.</p>
-      </div>
-      <div class="fam-card" data-reveal="scale">
-        <div class="fam-avatar">P</div>
-        <h4>Payal Saini</h4>
-        <div class="fam-role">Elder Sister</div>
-        <p>Working professional at a private office. My eldest sister and a constant guide.</p>
-      </div>
-      <div class="fam-card" data-reveal="scale">
-        <div class="fam-avatar">K</div>
-        <h4>Komal Saini</h4>
-        <div class="fam-role">Elder Sister</div>
-        <p>Working professional at a private office. Always encouraging me to build more.</p>
-      </div>
-    </div>
-
-    <div class="family-note" data-reveal>
-      <strong>Family first.</strong> Every member of my family stays aware and genuinely serious about my future — my father's discipline, my mother's care, and my sisters' encouragement are the real reason I keep building and learning every day.
-    </div>
-  </div>
-</section>
-
 <!-- INTERESTS -->
 <section class="section" id="interests">
   <div class="wrap">
@@ -995,13 +784,9 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:40px
 
     <div class="contact-grid">
       <div class="contact-list" data-reveal="left">
-        <a class="contact-item" href="tel:+919772171731">
-          <div class="c-ico"><i class="fas fa-phone-alt"></i></div>
-          <div><p>Phone</p><b>+91 97721 71731</b></div>
-        </a>
         <a class="contact-item" href="https://wa.me/919772171731?text=Hi%20Yash%2C%20I%20saw%20your%20portfolio" target="_blank" rel="noopener">
           <div class="c-ico"><i class="fab fa-whatsapp" style="color:#25d366;"></i></div>
-          <div><p>WhatsApp</p><b>+91 97721 71731</b></div>
+          <div><p>WhatsApp</p><b>Chat with me directly</b></div>
         </a>
         <a class="contact-item" href="mailto:yashsaini0756@gmail.com">
           <div class="c-ico"><i class="fas fa-envelope"></i></div>
@@ -1013,7 +798,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:40px
         </a>
         <div class="contact-item">
           <div class="c-ico"><i class="fas fa-map-pin"></i></div>
-          <div><p>Location</p><b>Barkat Nagar, Tonk Phatak, Jaipur</b></div>
+          <div><p>Location</p><b>Jaipur, Rajasthan, India</b></div>
         </div>
       </div>
 
@@ -1040,7 +825,6 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:40px
       <a href="https://github.com/yashsaini0756" target="_blank" rel="noopener" class="gh" aria-label="GitHub"><i class="fab fa-github"></i></a>
       <a href="https://wa.me/919772171731" target="_blank" rel="noopener" class="wa" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
       <a href="mailto:yashsaini0756@gmail.com" class="mail" aria-label="Email"><i class="fas fa-envelope"></i></a>
-      <a href="tel:+919772171731" class="ph" aria-label="Phone"><i class="fas fa-phone-alt"></i></a>
     </div>
     <div>© <span id="year"></span> Yash Saini · Built with <i class="fas fa-heart foot-heart"></i> in Jaipur</div>
   </div>
@@ -1049,7 +833,6 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:40px
 <a href="https://wa.me/919772171731?text=Hi%20Yash%2C%20I%20saw%20your%20portfolio" target="_blank" rel="noopener" class="float-wa" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
 <button id="toTop" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
 
-<!-- COMMAND PALETTE -->
 <div class="cmdk-overlay" id="cmdkOverlay">
   <div class="cmdk">
     <div class="cmdk-input">
@@ -1065,7 +848,6 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:40px
   </div>
 </div>
 
-<!-- TOAST -->
 <div class="toast" id="toast">
   <div class="t-icon"><i class="fas fa-trophy"></i></div>
   <div class="t-text">
@@ -1078,7 +860,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:40px
 const $ = (s, el=document) => el.querySelector(s);
 const $$ = (s, el=document) => Array.from(el.querySelectorAll(s));
 
-/* ============ PRELOADER ============ */
+/* PRELOADER */
 (function(){
   const pre = $('#preloader');
   let done = false;
@@ -1089,74 +871,37 @@ const $$ = (s, el=document) => Array.from(el.querySelectorAll(s));
 
 $('#year').textContent = new Date().getFullYear();
 
-/* ============ SCROLL PROGRESS ============ */
+/* SCROLL PROGRESS */
 (function(){
   const bar = $('#progress');
   let t = false;
-  function u(){
-    const h = document.documentElement.scrollHeight - window.innerHeight;
-    bar.style.width = Math.min(100, Math.max(0, h > 0 ? (window.scrollY / h) * 100 : 0)) + '%';
-    t = false;
-  }
+  function u(){ const h = document.documentElement.scrollHeight - innerHeight; bar.style.width = Math.min(100, Math.max(0, h > 0 ? (scrollY / h) * 100 : 0)) + '%'; t = false; }
   window.addEventListener('scroll', () => { if(!t){ requestAnimationFrame(u); t = true; } }, {passive:true});
   u();
 })();
 
-/* ============ XP SYSTEM ============ */
+/* XP SYSTEM */
 (function(){
   const lvlEl = $('#xpLevel'), fillEl = $('#xpFill'), labelEl = $('#xpLabel');
   let xp = 0, level = 1, visited = new Set();
   const sections = $$('section[id]');
-
-  function update(){
-    const needed = level * 100;
-    const percent = (xp % 100);
-    fillEl.style.width = percent + '%';
-    labelEl.textContent = `${xp} / ${needed} XP`;
-    lvlEl.textContent = level;
-  }
-
-  function addXP(amount, source){
-    xp += amount;
-    if(xp >= level * 100){ level++; showToast('⭐ Level Up!', `You reached Level ${level}`); }
-    update();
-  }
-
-  // Scroll gives XP
+  function update(){ const needed = level * 100; fillEl.style.width = (xp % 100) + '%'; labelEl.textContent = xp + ' / ' + needed + ' XP'; lvlEl.textContent = level; }
+  function addXP(n){ xp += n; if(xp >= level * 100){ level++; if(typeof showToast === 'function') showToast('⭐ Level Up!', 'You reached Level ' + level); } update(); }
   let lastY = 0;
-  window.addEventListener('scroll', () => {
-    const y = window.scrollY;
-    if(Math.abs(y - lastY) > 60){
-      lastY = y;
-      addXP(1);
-    }
-  }, {passive:true});
-
-  // Section views give XP
+  window.addEventListener('scroll', () => { const y = scrollY; if(Math.abs(y - lastY) > 60){ lastY = y; addXP(1); } }, {passive:true});
   if('IntersectionObserver' in window){
     const io = new IntersectionObserver(entries => {
-      entries.forEach(en => {
-        if(en.isIntersecting && !visited.has(en.target.id)){
-          visited.add(en.target.id);
-          addXP(10, en.target.id);
-        }
-      });
+      entries.forEach(en => { if(en.isIntersecting && !visited.has(en.target.id)){ visited.add(en.target.id); addXP(10); } });
     }, {threshold: 0.4});
     sections.forEach(s => io.observe(s));
   }
-
   update();
 })();
 
-/* ============ THEME ============ */
+/* THEME */
 (function(){
-  const html = document.documentElement;
-  const btn = $('#themeToggle');
-  const icon = btn.querySelector('i');
-  if(localStorage.getItem('theme') === 'dark'){
-    html.setAttribute('data-theme','dark');
-    icon.className = 'fas fa-sun';
-  }
+  const html = document.documentElement, btn = $('#themeToggle'), icon = btn.querySelector('i');
+  if(localStorage.getItem('theme') === 'dark'){ html.setAttribute('data-theme','dark'); icon.className = 'fas fa-sun'; }
   btn.addEventListener('click', () => {
     const isDark = html.getAttribute('data-theme') === 'dark';
     html.setAttribute('data-theme', isDark ? 'light' : 'dark');
@@ -1165,7 +910,7 @@ $('#year').textContent = new Date().getFullYear();
   });
 })();
 
-/* ============ FOCUS MODE ============ */
+/* FOCUS MODE */
 (function(){
   const btn = $('#focusToggle');
   let active = false;
@@ -1174,17 +919,17 @@ $('#year').textContent = new Date().getFullYear();
     document.body.classList.toggle('focus-mode', active);
     btn.classList.toggle('active', active);
     btn.querySelector('i').className = active ? 'fas fa-eye-slash' : 'fas fa-eye';
-    showToast(active ? '🎯 Focus Mode ON' : '👁 Focus Mode OFF', active ? 'Distractions hidden' : 'Welcome back');
+    if(typeof showToast === 'function') showToast(active ? '🎯 Focus Mode ON' : '👁 Focus Mode OFF', active ? 'Distractions hidden' : 'Welcome back');
   });
 })();
 
-/* ============ CURSOR + TRAIL ============ */
+/* CURSOR */
 (function(){
-  if(window.matchMedia('(max-width: 768px)').matches) return;
+  if(matchMedia('(max-width: 768px)').matches) return;
   const dot = $('.cursor-dot'), ring = $('.cursor-ring');
   if(!dot || !ring) return;
   let mx = innerWidth/2, my = innerHeight/2, rx = mx, ry = my, lt = 0;
-  const hoverSel = 'a, button, .chip, .int-tag, .contact-item, .build-card, .fam-card, .skill-card, input, textarea, .cmdk-item, .orbit-icon';
+  const hov = 'a, button, .chip, .int-tag, .contact-item, .fam-card, .skill-card, input, textarea, .cmdk-item, .orbit-icon';
   document.addEventListener('mousemove', e => {
     mx = e.clientX; my = e.clientY;
     dot.style.left = mx + 'px'; dot.style.top = my + 'px';
@@ -1198,20 +943,14 @@ $('#year').textContent = new Date().getFullYear();
       setTimeout(() => tr.remove(), 900);
     }
   });
-  (function anim(){
-    rx += (mx - rx) * 0.16; ry += (my - ry) * 0.16;
-    ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
-    requestAnimationFrame(anim);
-  })();
-  document.addEventListener('mouseover', e => { if(e.target.closest(hoverSel)) ring.classList.add('hover'); });
-  document.addEventListener('mouseout', e => { if(e.target.closest(hoverSel)) ring.classList.remove('hover'); });
+  (function anim(){ rx += (mx - rx) * 0.16; ry += (my - ry) * 0.16; ring.style.left = rx + 'px'; ring.style.top = ry + 'px'; requestAnimationFrame(anim); })();
+  document.addEventListener('mouseover', e => { if(e.target.closest(hov)) ring.classList.add('hover'); });
+  document.addEventListener('mouseout', e => { if(e.target.closest(hov)) ring.classList.remove('hover'); });
 })();
 
-/* ============ NAVBAR ============ */
+/* NAVBAR */
 (function(){
-  const header = $('#header');
-  const links = $$('.nav-links a');
-  const sections = $$('section[id]');
+  const header = $('#header'), links = $$('.nav-links a'), sections = $$('section[id]');
   let t = false;
   function u(){
     header.classList.toggle('scrolled', scrollY > 12);
@@ -1224,7 +963,7 @@ $('#year').textContent = new Date().getFullYear();
   u();
 })();
 
-/* ============ MOBILE MENU ============ */
+/* MOBILE MENU */
 (function(){
   const b = $('#burger'), m = $('#mobileMenu'), o = $('#overlay');
   function close(){ b.classList.remove('open'); m.classList.remove('open'); o.classList.remove('open'); }
@@ -1233,7 +972,7 @@ $('#year').textContent = new Date().getFullYear();
   $$('.mobile-menu a').forEach(a => a.addEventListener('click', close));
 })();
 
-/* ============ SMOOTH SCROLL ============ */
+/* SMOOTH SCROLL */
 document.addEventListener('click', e => {
   const a = e.target.closest('a[href^="#"]');
   if(!a) return;
@@ -1242,45 +981,38 @@ document.addEventListener('click', e => {
   const el = document.querySelector(id);
   if(!el) return;
   e.preventDefault();
-  const y = el.getBoundingClientRect().top + pageYOffset - 74;
-  scrollTo({top: y, behavior: 'smooth'});
+  scrollTo({top: el.getBoundingClientRect().top + pageYOffset - 74, behavior: 'smooth'});
 });
 
-/* ============ REVEAL ============ */
+/* REVEAL */
 (function(){
   const els = $$('[data-reveal]');
   if(!('IntersectionObserver' in window)){ els.forEach(el => el.classList.add('in')); return; }
   const io = new IntersectionObserver(entries => {
-    entries.forEach(en => {
-      if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
-    });
+    entries.forEach(en => { if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
   }, {threshold: 0.12, rootMargin: '0px 0px -40px 0px'});
   els.forEach(el => io.observe(el));
 })();
 
-/* ============ SKILL BARS ============ */
+/* SKILL BARS */
 (function(){
-  const bars = $$('.bar-fill, .bp-fill');
+  const bars = $$('.bar-fill');
   if(!('IntersectionObserver' in window)){ bars.forEach(b => b.style.width = b.dataset.w + '%'); return; }
   const io = new IntersectionObserver(entries => {
-    entries.forEach(en => {
-      if(en.isIntersecting){ en.target.style.width = en.target.dataset.w + '%'; io.unobserve(en.target); }
-    });
+    entries.forEach(en => { if(en.isIntersecting){ en.target.style.width = en.target.dataset.w + '%'; io.unobserve(en.target); } });
   }, {threshold: 0.35});
   bars.forEach(b => io.observe(b));
 })();
 
-/* ============ SIGNATURE ============ */
+/* SIGNATURE */
 (function(){
   const s = $('#signSvg');
   if(!s) return;
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(en => { if(en.isIntersecting){ s.classList.add('in'); io.unobserve(s); } });
-  }, {threshold: 0.5});
+  const io = new IntersectionObserver(entries => { entries.forEach(en => { if(en.isIntersecting){ s.classList.add('in'); io.unobserve(s); } }); }, {threshold: 0.5});
   io.observe(s);
 })();
 
-/* ============ TYPEWRITER CODE ============ */
+/* TYPEWRITER CODE */
 (function(){
   const codeBody = $('#codeBody');
   if(!codeBody) return;
@@ -1303,29 +1035,16 @@ document.addEventListener('click', e => {
     const line = lines[li];
     const full = '  '.repeat(line.indent) + line.text;
     const plain = full.replace(/<[^>]+>/g, '');
-    if(ci === 0){
-      const d = document.createElement('div');
-      codeBody.appendChild(d);
-    }
+    if(ci === 0){ const d = document.createElement('div'); codeBody.appendChild(d); }
     const d = codeBody.lastElementChild;
-    if(ci >= plain.length){
-      d.innerHTML = full;
-      li++; ci = 0;
-      setTimeout(type, 180);
-    } else {
-      d.innerHTML = buildVisible(full, plain.slice(0, ci + 1));
-      ci++;
-      setTimeout(type, 22);
-    }
+    if(ci >= plain.length){ d.innerHTML = full; li++; ci = 0; setTimeout(type, 180); }
+    else { d.innerHTML = buildVisible(full, plain.slice(0, ci + 1)); ci++; setTimeout(type, 22); }
   }
   function buildVisible(full, vis){
     let out = '', c = 0, i = 0;
     while(i < full.length && c < vis.length){
-      if(full[i] === '<'){
-        const e = full.indexOf('>', i);
-        out += full.slice(i, e + 1);
-        i = e + 1;
-      } else { out += full[i]; c++; i++; }
+      if(full[i] === '<'){ const e = full.indexOf('>', i); out += full.slice(i, e + 1); i = e + 1; }
+      else { out += full[i]; c++; i++; }
     }
     const o = (out.match(/<span[^>]*>/g) || []).length;
     const cl = (out.match(/<\/span>/g) || []).length;
@@ -1335,7 +1054,7 @@ document.addEventListener('click', e => {
   type();
 })();
 
-/* ============ ORBIT ============ */
+/* ORBIT */
 (function(){
   const stage = $('#orbitStage'), wrap = $('#orbitIcons');
   if(!stage || !wrap) return;
@@ -1362,19 +1081,13 @@ document.addEventListener('click', e => {
     wrap.appendChild(el);
     return {el, ring: ic.ring, baseAngle: ic.angle};
   });
-  const conf = {
-    outer: {rf: 0.48, sp: 0.14, dir: 1},
-    mid:   {rf: 0.35, sp: 0.22, dir: -1},
-    inner: {rf: 0.23, sp: 0.30, dir: 1}
-  };
+  const conf = { outer: {rf: 0.48, sp: 0.14, dir: 1}, mid: {rf: 0.35, sp: 0.22, dir: -1}, inner: {rf: 0.23, sp: 0.30, dir: 1} };
   let lastY = scrollY, boost = 0, boostT = 0;
   window.addEventListener('scroll', () => {
-    const d = scrollY - lastY;
-    lastY = scrollY;
+    const d = scrollY - lastY; lastY = scrollY;
     const rect = stage.getBoundingClientRect();
     if(rect.top < innerHeight && rect.bottom > 0) boostT += d * 2.2;
   }, {passive:true});
-
   let gb = 0, lt = performance.now();
   function anim(now){
     const dt = Math.min(50, now - lt); lt = now;
@@ -1388,64 +1101,44 @@ document.addEventListener('click', e => {
       const rot = gb * c.sp * c.dir + boost * c.sp * c.dir * 2.5;
       const rad = (item.baseAngle + rot * (180 / Math.PI) * 0.02) * Math.PI / 180;
       const r = size * c.rf;
-      const x = Math.cos(rad) * r;
-      const y = Math.sin(rad) * r;
-      item.el.style.transform = `translate(-50%, -50%) translate(${x}px, ${y}px)`;
+      item.el.style.transform = 'translate(-50%, -50%) translate(' + Math.cos(rad) * r + 'px, ' + Math.sin(rad) * r + 'px)';
     });
     requestAnimationFrame(anim);
   }
   requestAnimationFrame(anim);
 })();
 
-/* ============ LIVE CLOCK ============ */
+/* CLOCK */
 (function(){
   const el = $('#clockText');
   if(!el) return;
   function u(){
-    try{
-      const t = new Intl.DateTimeFormat('en-IN', {timeZone:'Asia/Kolkata', hour:'2-digit', minute:'2-digit', hour12:true}).format(new Date());
-      el.innerHTML = '<i class="fas fa-clock"></i> ' + t + ' IST';
-    }catch(e){}
+    try{ const t = new Intl.DateTimeFormat('en-IN', {timeZone:'Asia/Kolkata', hour:'2-digit', minute:'2-digit', hour12:true}).format(new Date()); el.innerHTML = '<i class="fas fa-clock"></i> ' + t + ' IST'; }catch(e){}
   }
   u(); setInterval(u, 30000);
 })();
 
-/* ============ LIVE WEATHER (Jaipur) ============ */
+/* WEATHER */
 (function(){
   const el = $('#weatherText');
   if(!el) return;
-  // Jaipur coordinates: 26.9124 N, 75.7873 E
   fetch('https://api.open-meteo.com/v1/forecast?latitude=26.9124&longitude=75.7873&current=temperature_2m,weather_code&timezone=Asia%2FKolkata')
     .then(r => r.json())
     .then(d => {
       const temp = Math.round(d.current.temperature_2m);
       const code = d.current.weather_code;
-      const emoji = weatherEmoji(code);
-      el.innerHTML = `<i class="fas ${emoji}"></i> Jaipur ${temp}°C`;
+      const e = code === 0 ? 'fa-sun' : code <= 3 ? 'fa-cloud-sun' : code <= 48 ? 'fa-cloud' : code <= 67 ? 'fa-cloud-rain' : code <= 77 ? 'fa-snowflake' : code <= 82 ? 'fa-cloud-showers-heavy' : 'fa-bolt';
+      el.innerHTML = '<i class="fas ' + e + '"></i> Jaipur ' + temp + '°C';
     })
-    .catch(() => {
-      el.innerHTML = '<i class="fas fa-cloud-sun"></i> Jaipur, IN';
-    });
-
-  function weatherEmoji(c){
-    if(c === 0) return 'fa-sun';
-    if(c <= 3) return 'fa-cloud-sun';
-    if(c <= 48) return 'fa-cloud';
-    if(c <= 67) return 'fa-cloud-rain';
-    if(c <= 77) return 'fa-snowflake';
-    if(c <= 82) return 'fa-cloud-showers-heavy';
-    if(c <= 99) return 'fa-bolt';
-    return 'fa-cloud-sun';
-  }
+    .catch(() => { el.innerHTML = '<i class="fas fa-cloud-sun"></i> Jaipur, IN'; });
 })();
 
-/* ============ GREETING ============ */
+/* GREETING */
 (function(){
   const el = $('#greetText');
   if(!el) return;
   let h;
-  try{ h = parseInt(new Intl.DateTimeFormat('en-IN', {timeZone:'Asia/Kolkata', hour:'numeric', hour12:false}).format(new Date()), 10); }
-  catch(e){ h = new Date().getHours(); }
+  try{ h = parseInt(new Intl.DateTimeFormat('en-IN', {timeZone:'Asia/Kolkata', hour:'numeric', hour12:false}).format(new Date()), 10); }catch(e){ h = new Date().getHours(); }
   let g = 'Hello';
   if(h < 5) g = 'Burning midnight oil';
   else if(h < 12) g = 'Good morning';
@@ -1455,22 +1148,16 @@ document.addEventListener('click', e => {
   el.textContent = g + ', I\'m';
 })();
 
-/* ============ TOAST ============ */
+/* TOAST */
 let showToast;
 (function(){
   const t = $('#toast'), ti = $('#toastTitle'), ts = $('#toastSub');
   if(!t) return;
   let timer;
-  showToast = function(title, sub){
-    ti.textContent = title;
-    ts.textContent = sub || '';
-    t.classList.add('show');
-    clearTimeout(timer);
-    timer = setTimeout(() => t.classList.remove('show'), 2600);
-  };
+  showToast = function(title, sub){ ti.textContent = title; ts.textContent = sub || ''; t.classList.add('show'); clearTimeout(timer); timer = setTimeout(() => t.classList.remove('show'), 2600); };
 })();
 
-/* ============ ACHIEVEMENTS ============ */
+/* ACHIEVEMENTS */
 (function(){
   const shown = new Set();
   const sections = $$('section[data-achievement]');
@@ -1479,30 +1166,23 @@ let showToast;
     entries.forEach(en => {
       if(en.isIntersecting){
         const n = en.target.dataset.achievement;
-        if(!shown.has(n)){ shown.add(n); showToast('✦ Achievement Unlocked', n); }
+        if(!shown.has(n)){ shown.add(n); if(typeof showToast === 'function') showToast('✦ Achievement Unlocked', n); }
       }
     });
   }, {threshold: 0.4});
   sections.forEach(s => io.observe(s));
 })();
 
-/* ============ TEXT SCRAMBLE ============ */
+/* TEXT SCRAMBLE */
 (function(){
   const chars = '!<>-_\\/[]{}—=+*^?#ABCabc0123';
   const heads = $$('[data-scramble]');
   if(!heads.length) return;
   const io = new IntersectionObserver(entries => {
-    entries.forEach(en => {
-      if(en.isIntersecting){
-        scramble(en.target);
-        io.unobserve(en.target);
-      }
-    });
+    entries.forEach(en => { if(en.isIntersecting){ scramble(en.target); io.unobserve(en.target); } });
   }, {threshold: 0.5});
   heads.forEach(h => io.observe(h));
-
   function scramble(el){
-    // Original innerHTML kept, we scramble the text nodes
     const original = el.innerHTML;
     const plain = el.textContent;
     let frame = 0;
@@ -1512,199 +1192,97 @@ let showToast;
       const revealed = Math.floor((frame / total) * plain.length);
       let out = '';
       for(let i = 0; i < plain.length; i++){
-        if(i < revealed || plain[i] === ' ' || plain[i] === '\n'){
-          out += plain[i];
-        } else {
-          out += chars[Math.floor(Math.random() * chars.length)];
-        }
+        if(i < revealed || plain[i] === ' ') out += plain[i];
+        else out += chars[Math.floor(Math.random() * chars.length)];
       }
       el.textContent = out;
-      if(frame >= total){
-        clearInterval(timer);
-        el.innerHTML = original;
-      }
+      if(frame >= total){ clearInterval(timer); el.innerHTML = original; }
     }, 28);
   }
 })();
 
-/* ============ TERMINAL ============ */
+/* TERMINAL */
 (function(){
   const body = $('#termBody');
   if(!body) return;
-
   const history = [];
   let histIdx = -1;
-
   const commands = {
-    help: () => `<span class="hi">Available commands:</span><br>
-      <span class="ok">whoami</span>      — Who is Yash Saini?<br>
-      <span class="ok">skills</span>      — My technical skills<br>
-      <span class="ok">experience</span>  — Work experience<br>
-      <span class="ok">education</span>   — Education details<br>
-      <span class="ok">contact</span>     — How to reach me<br>
-      <span class="ok">family</span>      — My family<br>
-      <span class="ok">weather</span>     — Jaipur weather<br>
-      <span class="ok">joke</span>        — Random dev joke<br>
-      <span class="ok">date</span>        — Current date & time<br>
-      <span class="ok">sudo hire yash</span> — ⚡ Special<br>
-      <span class="ok">clear</span>       — Clear terminal<br>
-      <span class="warn">Tip:</span> Use ↑ ↓ arrows for history`,
-    whoami: () => `<span class="hi">Yash Saini</span> — Web Developer & AI Enthusiast<br>
-      📍 Jaipur, Rajasthan, India<br>
-      🎓 Class 12 (Senior Secondary) student<br>
-      💼 Web Developer Intern @ <span class="ok">hiimx.com</span> (7+ months)<br>
-      🚀 Building websites, AI assistants & Android apps<br>
-      💡 Learning every single day`,
-    skills: () => `<span class="hi">Technical Skills:</span><br>
-      <span class="ok">Web:</span>       HTML5, CSS3, JavaScript, Responsive Design, UI/UX, PHP, API Integration<br>
-      <span class="ok">AI:</span>        AI/LLM Integration, Gemini, Voice Assistants, TTS, Vision AI<br>
-      <span class="ok">Android:</span>   Kotlin, AndroidIDE/AIDE, NotificationListenerService<br>
-      <span class="ok">Creative:</span>  Poster Design, Photo Editing, Branding, AI Image Gen`,
-    experience: () => `<span class="hi">Experience:</span><br>
-      <span class="ok">• Present (7+ months)</span>  Web Developer Intern @ hiimx.com<br>
-      <span class="ok">• 2025</span>                Freelance Web Work<br><br>
-      <span class="hi">Education:</span><br>
-      <span class="ok">• Active</span>              Class 12 · Senior Secondary<br>
-      <span class="ok">• Certified</span>           CCC Course`,
-    education: () => `<span class="hi">Education:</span><br>
-      🎓 <span class="ok">Class 12 · Senior Secondary</span> (Active)<br>
-      📜 <span class="ok">CCC Certified</span> — Course on Computer Concepts<br>
-      💻 Self-taught Web Dev & AI since 2024`,
-    contact: () => `<span class="hi">Reach me:</span><br>
-      📞 Phone:     <span class="ok">+91 97721 71731</span><br>
-      💬 WhatsApp:  <span class="ok">+91 97721 71731</span><br>
-      ✉️  Email:     <span class="ok">yashsaini0756@gmail.com</span><br>
-      🐙 GitHub:    <span class="ok">github.com/yashsaini0756</span><br>
-      🌐 Website:   <span class="ok">yashsaini0756.github.io</span>`,
-    family: () => `<span class="hi">My Family:</span><br>
-      👨 <span class="ok">Amar Chand Saini</span>  — Father (Mechanic · cycles & bikes)<br>
-      👩 <span class="ok">Lata Saini</span>         — Mother (Homemaker)<br>
-      👧 <span class="ok">Payal Saini</span>        — Elder Sister (Private office)<br>
-      👧 <span class="ok">Komal Saini</span>        — Elder Sister (Private office)`,
-    weather: () => {
-      const t = $('#weatherText').textContent.replace('Jaipur', '').replace(/[^\d°C\-]/g, '');
-      return `<span class="hi">Jaipur Weather:</span> ${t}<br><span class="warn">Live from Open-Meteo</span>`;
-    },
-    date: () => {
-      const now = new Date();
-      return `<span class="hi">${now.toLocaleDateString('en-IN', {weekday:'long', year:'numeric', month:'long', day:'numeric'})}</span><br>${now.toLocaleTimeString('en-IN', {hour12:true})} IST`;
-    },
+    help: () => '<span class="hi">Available commands:</span><br><span class="ok">whoami</span>      — Who is Yash Saini?<br><span class="ok">skills</span>      — My technical skills<br><span class="ok">experience</span>  — Work experience<br><span class="ok">education</span>   — Education details<br><span class="ok">contact</span>     — How to reach me<br><span class="ok">weather</span>     — Jaipur weather<br><span class="ok">joke</span>        — Random dev joke<br><span class="ok">date</span>        — Current date & time<br><span class="ok">sudo hire yash</span> — ⚡ Special<br><span class="ok">clear</span>       — Clear terminal<br><span class="warn">Tip:</span> Use ↑ ↓ arrows for history',
+    whoami: () => '<span class="hi">Yash Saini</span> — Web Developer & AI Enthusiast<br>📍 Jaipur, Rajasthan, India<br>🎓 Class 12 (Senior Secondary) student<br>💼 Web Developer Intern @ <span class="ok">hiimx.com</span> (7+ months)<br>🚀 Building websites, AI assistants & Android apps<br>💡 Learning every single day',
+    skills: () => '<span class="hi">Technical Skills:</span><br><span class="ok">Web:</span>       HTML5, CSS3, JavaScript, Responsive Design, UI/UX, PHP, API Integration<br><span class="ok">AI:</span>        AI/LLM Integration, Gemini, Voice Assistants, TTS, Vision AI<br><span class="ok">Android:</span>   Kotlin, AndroidIDE/AIDE, NotificationListenerService<br><span class="ok">Creative:</span>  Poster Design, Photo Editing, Branding, AI Image Gen',
+    experience: () => '<span class="hi">Experience:</span><br><span class="ok">• Present (7+ months)</span>  Web Developer Intern @ hiimx.com<br><span class="ok">• 2025</span>                Freelance Web Work<br><br><span class="hi">Education:</span><br><span class="ok">• Active</span>              Class 12 · Senior Secondary<br><span class="ok">• Certified</span>           CCC Course',
+    education: () => '<span class="hi">Education:</span><br>🎓 <span class="ok">Class 12 · Senior Secondary</span> (Active)<br>📜 <span class="ok">CCC Certified</span> — Course on Computer Concepts<br>💻 Self-taught Web Dev & AI since 2024',
+    contact: () => '<span class="hi">Reach me:</span><br>💬 WhatsApp:  <span class="ok">Chat with me directly</span><br>✉️  Email:     <span class="ok">yashsaini0756@gmail.com</span><br>🐙 GitHub:    <span class="ok">github.com/yashsaini0756</span><br>🌐 Website:   <span class="ok">yashsaini0756.github.io</span>',
+    weather: () => { const t = $('#weatherText').textContent; return '<span class="hi">Jaipur Weather:</span> ' + t + '<br><span class="warn">Live from Open-Meteo</span>'; },
+    date: () => { const now = new Date(); return '<span class="hi">' + now.toLocaleDateString('en-IN', {weekday:'long', year:'numeric', month:'long', day:'numeric'}) + '</span><br>' + now.toLocaleTimeString('en-IN', {hour12:true}) + ' IST'; },
     joke: () => {
       const jokes = [
         'Why do programmers prefer dark mode? Because light attracts bugs. 🐛',
-        'I told my computer I needed a break... now it won\'t stop sending me KitKat ads. 🍫',
+        'I told my computer I needed a break... now it won\'t stop sending KitKat ads. 🍫',
         'Why did the developer go broke? Because he used up all his cache. 💸',
         'How many programmers does it take to change a light bulb? None — it\'s a hardware problem. 💡',
         'There are 10 types of people: those who understand binary, and those who don\'t. 🤓',
         'A SQL query walks into a bar, walks up to two tables and asks... "Can I join you?" 🍻'
       ];
-      return `<span class="hi">${jokes[Math.floor(Math.random() * jokes.length)]}</span>`;
+      return '<span class="hi">' + jokes[Math.floor(Math.random() * jokes.length)] + '</span>';
     },
-    'sudo hire yash': () => `<span class="warn">[sudo] password for visitor: ********</span><br>
-      <span class="ok">✓ Permission granted!</span><br><br>
-      <span class="hi">🎉 Excellent choice!</span><br>
-      Yash is available for:<br>
-      <span class="ok">• Internships</span><br>
-      <span class="ok">• Freelance projects</span><br>
-      <span class="ok">• Collaborations</span><br><br>
-      👉 Reach out: <span class="link">+91 97721 71731</span><br>
-      📧 <span class="link">yashsaini0756@gmail.com</span><br><br>
-      <span class="hi">✦ You just unlocked "Smart Recruiter"!</span>`,
+    'sudo hire yash': () => '<span class="warn">[sudo] password for visitor: ********</span><br><span class="ok">✓ Permission granted!</span><br><br><span class="hi">🎉 Excellent choice!</span><br>Yash is available for:<br><span class="ok">• Internships</span><br><span class="ok">• Freelance projects</span><br><span class="ok">• Collaborations</span><br><br>👉 Reach out via WhatsApp or Email<br><br><span class="hi">✦ You just unlocked "Smart Recruiter"!</span>',
     clear: () => 'CLEAR'
   };
-
-  function print(html){
-    const d = document.createElement('div');
-    d.className = 'term-out';
-    d.innerHTML = html;
-    body.appendChild(d);
-    body.scrollTop = body.scrollHeight;
-  }
-
+  function print(html){ const d = document.createElement('div'); d.className = 'term-out'; d.innerHTML = html; body.appendChild(d); body.scrollTop = body.scrollHeight; }
   function prompt(){
     const d = document.createElement('div');
     d.className = 'term-line term-input-line';
     d.innerHTML = '<span class="prompt"></span><span class="path">~</span> <span style="color:#06b6d4">$</span>';
     const input = document.createElement('input');
-    input.type = 'text';
-    input.className = 'term-input';
-    input.autocomplete = 'off';
-    input.spellcheck = false;
+    input.type = 'text'; input.className = 'term-input'; input.autocomplete = 'off'; input.spellcheck = false;
     d.appendChild(input);
     body.appendChild(d);
     input.focus();
     body.scrollTop = body.scrollHeight;
-
     input.addEventListener('keydown', e => {
       if(e.key === 'Enter'){
         const val = input.value.trim();
         if(!val) return;
-        // Show as static line
-        d.innerHTML = '<span class="prompt"></span><span class="path">~</span> <span style="color:#06b6d4">$</span> <span class="cmd">' + escapeHtml(val) + '</span>';
-        history.push(val);
-        histIdx = history.length;
-        runCommand(val.toLowerCase());
-      } else if(e.key === 'ArrowUp'){
-        e.preventDefault();
-        if(histIdx > 0){ histIdx--; input.value = history[histIdx]; }
-      } else if(e.key === 'ArrowDown'){
-        e.preventDefault();
-        if(histIdx < history.length - 1){ histIdx++; input.value = history[histIdx]; }
-        else { histIdx = history.length; input.value = ''; }
-      }
+        d.innerHTML = '<span class="prompt"></span><span class="path">~</span> <span style="color:#06b6d4">$</span> <span class="cmd">' + esc(val) + '</span>';
+        history.push(val); histIdx = history.length;
+        run(val.toLowerCase());
+      } else if(e.key === 'ArrowUp'){ e.preventDefault(); if(histIdx > 0){ histIdx--; input.value = history[histIdx]; } }
+      else if(e.key === 'ArrowDown'){ e.preventDefault(); if(histIdx < history.length - 1){ histIdx++; input.value = history[histIdx]; } else { histIdx = history.length; input.value = ''; } }
     });
   }
-
-  function escapeHtml(s){ return s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
-
-  function runCommand(cmd){
+  function esc(s){ return s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+  function run(cmd){
     const fn = commands[cmd];
-    if(fn){
-      const out = fn();
-      if(out === 'CLEAR'){ body.innerHTML = ''; }
-      else { print(out); }
-    } else {
-      print('<span class="err">command not found: ' + escapeHtml(cmd) + '</span><br>Type <span class="ok">help</span> for available commands.');
-    }
+    if(fn){ const out = fn(); if(out === 'CLEAR') body.innerHTML = ''; else print(out); }
+    else print('<span class="err">command not found: ' + esc(cmd) + '</span><br>Type <span class="ok">help</span> for available commands.');
     prompt();
   }
-
-  // Initial
   print('<span class="hi">Welcome to Yash\'s interactive terminal ⚡</span><br>Type <span class="ok">help</span> to see available commands.');
   prompt();
-
-  // Hint buttons
   $$('.term-hint button').forEach(b => {
     b.addEventListener('click', () => {
       const cmd = b.dataset.cmd;
-      // Remove current prompt input
-      const lastInput = body.querySelector('.term-input-line');
-      if(lastInput) lastInput.remove();
+      const li = body.querySelector('.term-input-line');
+      if(li) li.remove();
       const d = document.createElement('div');
       d.className = 'term-line term-input-line';
-      d.innerHTML = '<span class="prompt"></span><span class="path">~</span> <span style="color:#06b6d4">$</span> <span class="cmd">' + escapeHtml(cmd) + '</span>';
+      d.innerHTML = '<span class="prompt"></span><span class="path">~</span> <span style="color:#06b6d4">$</span> <span class="cmd">' + esc(cmd) + '</span>';
       body.appendChild(d);
-      runCommand(cmd);
+      run(cmd);
     });
   });
-
-  // Ctrl+T to scroll to terminal and focus
   document.addEventListener('keydown', e => {
     if((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 't'){
       e.preventDefault();
       const t = $('#terminal');
-      if(t){
-        t.scrollIntoView({behavior:'smooth', block:'start'});
-        setTimeout(() => {
-          const inp = body.querySelector('.term-input');
-          if(inp) inp.focus();
-        }, 700);
-      }
+      if(t){ t.scrollIntoView({behavior:'smooth', block:'start'}); setTimeout(() => { const i = body.querySelector('.term-input'); if(i) i.focus(); }, 700); }
     }
   });
 })();
 
-/* ============ BACK TO TOP ============ */
+/* BACK TO TOP */
 (function(){
   const btn = $('#toTop');
   let t = false;
@@ -1713,7 +1291,7 @@ let showToast;
   btn.addEventListener('click', () => scrollTo({top:0, behavior:'smooth'}));
 })();
 
-/* ============ COMMAND PALETTE ============ */
+/* COMMAND PALETTE */
 (function(){
   const overlay = $('#cmdkOverlay'), input = $('#cmdkInput'), list = $('#cmdkList');
   if(!overlay || !input || !list) return;
@@ -1722,13 +1300,10 @@ let showToast;
     {label:'About Me', sub:'Who I am', href:'#about', icon:'fas fa-user'},
     {label:'Skills', sub:'What I know', href:'#skills', icon:'fas fa-cogs'},
     {label:'Interactive Terminal', sub:'Ctrl+T', href:'#terminal', icon:'fas fa-terminal'},
-    {label:'Currently Building', sub:'Live projects', href:'#building', icon:'fas fa-hammer'},
     {label:'Journey', sub:'Experience & education', href:'#journey', icon:'fas fa-road'},
-    {label:'Family', sub:'My support system', href:'#family', icon:'fas fa-heart'},
     {label:'Contact', sub:'Get in touch', href:'#contact', icon:'fas fa-envelope'},
-    {label:'WhatsApp Yash', sub:'+91 97721 71731', href:'https://wa.me/919772171731', icon:'fab fa-whatsapp', external:true},
+    {label:'WhatsApp Yash', sub:'Direct chat', href:'https://wa.me/919772171731', icon:'fab fa-whatsapp', external:true},
     {label:'Email Yash', sub:'yashsaini0756@gmail.com', href:'mailto:yashsaini0756@gmail.com', icon:'fas fa-envelope', external:true},
-    {label:'Call Yash', sub:'+91 97721 71731', href:'tel:+919772171731', icon:'fas fa-phone-alt', external:true},
     {label:'GitHub Profile', sub:'github.com/yashsaini0756', href:'https://github.com/yashsaini0756', icon:'fab fa-github', external:true},
     {label:'Toggle Theme', sub:'Dark / Light', icon:'fas fa-adjust', action:'theme'},
     {label:'Toggle Focus Mode', sub:'Distraction-free', icon:'fas fa-eye', action:'focus'},
@@ -1736,35 +1311,16 @@ let showToast;
     {label:'Print / Save Resume', sub:'Download PDF', icon:'fas fa-print', action:'print'}
   ];
   let filtered = commands.slice(), active = 0;
-
   function render(){
     if(!filtered.length){ list.innerHTML = '<div class="cmdk-empty">No results</div>'; return; }
-    list.innerHTML = filtered.map((c,i) => `
-      <div class="cmdk-item ${i===active?'active':''}" data-idx="${i}">
-        <div class="cmd-ico"><i class="${c.icon}"></i></div>
-        <div class="cmd-label">
-          <div>${c.label}</div>
-          <div class="cmd-sub">${c.sub || ''}</div>
-        </div>
-      </div>
-    `).join('');
-    list.querySelectorAll('.cmdk-item').forEach(el => {
-      el.addEventListener('click', () => { active = +el.dataset.idx; run(); });
-    });
+    list.innerHTML = filtered.map((c,i) => '<div class="cmdk-item ' + (i===active?'active':'') + '" data-idx="' + i + '"><div class="cmd-ico"><i class="' + c.icon + '"></i></div><div class="cmd-label"><div>' + c.label + '</div><div class="cmd-sub">' + (c.sub || '') + '</div></div></div>').join('');
+    list.querySelectorAll('.cmdk-item').forEach(el => { el.addEventListener('click', () => { active = +el.dataset.idx; run(); }); });
   }
-
-  function filter(){
-    const q = input.value.toLowerCase().trim();
-    filtered = commands.filter(c => c.label.toLowerCase().includes(q) || (c.sub||'').toLowerCase().includes(q));
-    active = 0;
-    render();
-  }
-
+  function filter(){ const q = input.value.toLowerCase().trim(); filtered = commands.filter(c => c.label.toLowerCase().includes(q) || (c.sub||'').toLowerCase().includes(q)); active = 0; render(); }
   function open(){ overlay.classList.add('open'); input.value=''; filter(); setTimeout(()=>input.focus(),80); }
   function close(){ overlay.classList.remove('open'); }
   function run(){
-    const c = filtered[active];
-    if(!c) return;
+    const c = filtered[active]; if(!c) return;
     close();
     if(c.action === 'theme'){ $('#themeToggle').click(); return; }
     if(c.action === 'focus'){ $('#focusToggle').click(); return; }
@@ -1772,19 +1328,11 @@ let showToast;
     if(c.action === 'print'){ window.print(); return; }
     if(c.external){ window.open(c.href, '_blank'); return; }
     const t = document.querySelector(c.href);
-    if(t){
-      const y = t.getBoundingClientRect().top + pageYOffset - 74;
-      scrollTo({top:y, behavior:'smooth'});
-    }
+    if(t){ scrollTo({top: t.getBoundingClientRect().top + pageYOffset - 74, behavior:'smooth'}); }
   }
-
   $('#cmdkOpen').addEventListener('click', open);
   document.addEventListener('keydown', e => {
-    if((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k'){
-      e.preventDefault();
-      overlay.classList.contains('open') ? close() : open();
-      return;
-    }
+    if((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k'){ e.preventDefault(); overlay.classList.contains('open') ? close() : open(); return; }
     if(overlay.classList.contains('open')){
       if(e.key === 'Escape') close();
       else if(e.key === 'ArrowDown'){ e.preventDefault(); active = Math.min(active+1, filtered.length-1); render(); }
@@ -1796,7 +1344,7 @@ let showToast;
   input.addEventListener('input', filter);
 })();
 
-/* ============ KONAMI: type "yash" ============ */
+/* EASTER EGG */
 (function(){
   let buf = '';
   document.addEventListener('keydown', e => {
@@ -1809,52 +1357,45 @@ let showToast;
       document.body.style.transition = 'filter .5s';
       document.body.style.filter = 'hue-rotate(180deg) saturate(1.4)';
       setTimeout(() => document.body.style.filter = '', 2500);
-      showToast('🥚 Easter Egg Found!', 'You typed YASH — nice 👏');
+      if(typeof showToast === 'function') showToast('🥚 Easter Egg Found!', 'You typed YASH — nice 👏');
     }
   });
 })();
 
-/* ============ FORM ============ */
+/* FORM */
 (function(){
   const form = $('#contactForm');
   if(!form) return;
   form.addEventListener('submit', e => {
     e.preventDefault();
     const n = form.name.value.trim(), em = form.email.value.trim(), m = form.message.value.trim();
-    if(!n || !em || !m){ showToast('⚠ Missing fields', 'Please fill everything'); return; }
-    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){ showToast('⚠ Invalid email', 'Check the format'); return; }
+    if(!n || !em || !m){ if(typeof showToast === 'function') showToast('⚠ Missing fields', 'Please fill everything'); return; }
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){ if(typeof showToast === 'function') showToast('⚠ Invalid email', 'Check the format'); return; }
     const btn = form.querySelector('button[type="submit"]');
     const old = btn.innerHTML;
     btn.disabled = true;
     btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i><span>Sending...</span>';
     setTimeout(() => {
       btn.innerHTML = '<i class="fas fa-check"></i><span>Sent!</span>';
-      showToast('✓ Message Sent', 'Yash will reply soon');
+      if(typeof showToast === 'function') showToast('✓ Message Sent', 'Yash will reply soon');
       form.reset();
       setTimeout(() => { btn.disabled = false; btn.innerHTML = old; }, 1600);
     }, 900);
   });
 })();
 
-/* ============ MOUSE PARALLAX ON ORBIT ============ */
+/* MOUSE PARALLAX */
 (function(){
-  if(window.matchMedia('(max-width: 900px)').matches) return;
+  if(matchMedia('(max-width: 900px)').matches) return;
   const stage = $('#orbitStage');
   if(!stage) return;
   let tx = 0, ty = 0, cx = 0, cy = 0;
   window.addEventListener('mousemove', e => {
     const rect = stage.getBoundingClientRect();
-    const cx2 = rect.left + rect.width/2;
-    const cy2 = rect.top + rect.height/2;
-    tx = (e.clientX - cx2) / innerWidth * 20;
-    ty = (e.clientY - cy2) / innerHeight * 20;
+    tx = (e.clientX - (rect.left + rect.width/2)) / innerWidth * 20;
+    ty = (e.clientY - (rect.top + rect.height/2)) / innerHeight * 20;
   });
-  (function anim(){
-    cx += (tx - cx) * 0.06;
-    cy += (ty - cy) * 0.06;
-    stage.style.transform = `translate(${cx}px, ${cy}px)`;
-    requestAnimationFrame(anim);
-  })();
+  (function anim(){ cx += (tx - cx) * 0.06; cy += (ty - cy) * 0.06; stage.style.transform = 'translate(' + cx + 'px, ' + cy + 'px)'; requestAnimationFrame(anim); })();
 })();
 </script>
 </body>
