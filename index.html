@@ -427,6 +427,10 @@ nav{display:flex;align-items:center;justify-content:space-between;gap:16px;}
 .form-row input:focus,.form-row textarea:focus{outline:none;background:var(--surface);border-color:var(--primary);box-shadow:0 0 0 4px rgba(99,102,241,.12);}
 .form-row input::placeholder,.form-row textarea::placeholder{color:var(--muted);}
 .form-note{font-size:.75rem;color:var(--muted);margin-top:12px;text-align:center;}
+.form-status{margin-top:14px;padding:12px 16px;border-radius:12px;font-size:.85rem;font-weight:600;display:none;align-items:center;gap:10px;}
+.form-status.show{display:flex;}
+.form-status.success{background:rgba(34,197,94,.1);color:#16a34a;border:1px solid rgba(34,197,94,.25);}
+.form-status.error{background:rgba(239,68,68,.1);color:#dc2626;border:1px solid rgba(239,68,68,.25);}
 
 /* FOOTER */
 footer{background:var(--surface);border-top:1px solid var(--border);padding:40px 0 30px;position:relative;z-index:1;}
@@ -478,7 +482,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:40px
 .toast .t-text strong{display:block;font-size:.82rem;font-weight:700;}
 .toast .t-text span{font-size:.74rem;color:var(--muted);}
 
-/* RETRO OS WINDOWS 11 */
+/* RETRO OS */
 .retro-os{position:fixed;inset:0;z-index:99998;display:none;font-family:'Segoe UI','Inter',sans-serif;overflow:hidden;}
 .retro-os.active{display:block;animation:osFadeIn .5s ease;}
 @keyframes osFadeIn{from{opacity:0;}to{opacity:1;}}
@@ -493,7 +497,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:40px
 .retro-icon.selected{background:rgba(99,102,241,.4);border-color:rgba(255,255,255,.3);}
 .retro-icon .ric{width:48px;height:48px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:26px;background:linear-gradient(135deg,rgba(255,255,255,.2),rgba(255,255,255,.08));backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.15);box-shadow:0 4px 12px rgba(0,0,0,.15);color:#fff;}
 .retro-icon span{font-size:12.5px;color:#fff;text-shadow:1px 1px 3px rgba(0,0,0,.6);line-height:1.2;font-weight:400;}
-.retro-taskbar{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);height:48px;background:rgba(30,35,55,.75);backdrop-filter:blur(30px) saturate(180%);-webkit-backdrop-filter:blur(30px) saturate(180%);border:1px solid rgba(255,255,255,.1);border-radius:12px;display:flex;align-items:center;padding:6px 10px;gap:4px;z-index:5;box-shadow:0 8px 32px rgba(0,0,0,.3);max-width:calc(100% - 40px);}
+.retro-taskbar{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);height:48px;background:rgba(30,35,55,.75);backdrop-filter:blur(30px) saturate(180%);border:1px solid rgba(255,255,255,.1);border-radius:12px;display:flex;align-items:center;padding:6px 10px;gap:4px;z-index:5;box-shadow:0 8px 32px rgba(0,0,0,.3);max-width:calc(100% - 40px);}
 .retro-taskbar-inner{display:flex;align-items:center;gap:4px;}
 .retro-app-btn{width:38px;height:38px;border-radius:8px;background:transparent;border:none;color:#fff;font-size:1.15rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s;position:relative;}
 .retro-app-btn:hover{background:rgba(255,255,255,.15);}
@@ -539,7 +543,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:40px
 .retro-exit-btn:hover{background:rgba(232,17,35,.85);border-color:transparent;}
 @media(max-width:700px){.retro-desktop{grid-template-columns:repeat(auto-fill,80px);grid-auto-rows:88px;padding:12px;}.retro-icon .ric{width:40px;height:40px;font-size:22px;}.retro-icon span{font-size:11px;}.retro-taskbar{height:44px;padding:5px 8px;}.retro-app-btn{width:34px;height:34px;font-size:1rem;}.rsm-grid{grid-template-columns:repeat(3,1fr);}.retro-tray .tray-icons{display:none;}}
 
-/* SNAKE GAME */
+/* SNAKE */
 .game-overlay{position:fixed;inset:0;background:rgba(6,8,15,.92);backdrop-filter:blur(8px);z-index:99999;display:none;align-items:center;justify-content:center;padding:16px;}
 .game-overlay.active{display:flex;animation:fadeIn .35s ease;}
 @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
@@ -564,7 +568,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:40px
 .dpad .d-down{grid-column:2;grid-row:3;}
 @media(max-width:600px){.dpad{display:grid;}}
 
-/* FLOATING HEARTS */
+/* HEARTS */
 .heart-float{position:fixed;pointer-events:none;z-index:1;font-size:1.2rem;opacity:0;animation:heartRise 6s linear forwards;}
 @keyframes heartRise{0%{opacity:0;transform:translateY(0) scale(.5) rotate(0);}10%{opacity:.7;}90%{opacity:.5;}100%{opacity:0;transform:translateY(-100vh) scale(1.2) rotate(360deg);}}
 
@@ -614,7 +618,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:40px
   </div>
   <div class="retro-exit"><button class="retro-exit-btn" onclick="exitRetroOS()">✕ Exit to Modern Site</button></div>
   <div class="retro-startmenu" id="retroStartMenu">
-    <input type="text" class="rsm-search" placeholder="🔍  Type here to search..." id="rsmSearch">
+    <input type="text" class="rsm-search" placeholder="🔍  Type here to search...">
     <div class="rsm-title">Pinned</div>
     <div class="rsm-grid">
       <div class="rsm-app" data-win="resume"><div class="rsa-ico">📄</div><span>Resume</span></div>
@@ -716,13 +720,6 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:40px
             <button data-theme-val="afternoon"><i class="fas fa-cloud-sun"></i><span>Afternoon</span></button>
             <button data-theme-val="evening"><i class="fas fa-cloud-moon"></i><span>Evening</span></button>
             <button data-theme-val="night"><i class="fas fa-moon"></i><span>Night</span></button>
-          </div>
-        </div>
-        <div class="selector" id="langSelector">
-          <button class="selector-btn"><i class="fas fa-globe"></i><span id="langLabel">EN</span></button>
-          <div class="selector-menu" id="langMenu">
-            <button data-lang-val="en"><span class="em">🇬🇧</span><span>English</span></button>
-            <button data-lang-val="hi"><span class="em">🇮🇳</span><span>हिंदी</span></button>
           </div>
         </div>
         <button class="icon-btn" id="cmdkOpen" title="Command Palette (Ctrl+K)"><i class="fas fa-terminal"></i></button>
@@ -1016,17 +1013,18 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:40px
           <div><p>Location</p><b>Jaipur, Rajasthan, India</b></div>
         </div>
       </div>
-      <form class="form-card" id="contactForm" data-reveal="right" novalidate action="https://formsubmit.co/yashsaini0756@gmail.com" method="POST">
+      <form class="form-card" id="contactForm" data-reveal="right" novalidate>
         <h3>Send me a message</h3>
         <p class="lead">I usually reply within a few hours.</p>
-        <input type="hidden" name="_subject" value="New message from your portfolio!">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_next" value="https://yashsaini0756.github.io/?sent=1">
+        <input type="hidden" name="access_key" value="d3a2b536-fdbe-4699-ae5b-aacdf32367ef">
+        <input type="hidden" name="subject" value="New message from your portfolio!">
+        <input type="hidden" name="from_name" value="Yash Portfolio">
+        <input type="checkbox" name="botcheck" style="display:none !important" tabindex="-1" autocomplete="off">
         <div class="form-row"><label for="name">Your Name</label><input id="name" name="name" type="text" placeholder="e.g. Rahul Sharma" required></div>
         <div class="form-row"><label for="email">Your Email</label><input id="email" name="email" type="email" placeholder="you@example.com" required></div>
         <div class="form-row"><label for="message">Message</label><textarea id="message" name="message" rows="4" placeholder="Tell me what you'd like to talk about..." required></textarea></div>
         <button type="submit" class="btn btn-primary" style="width:100%;"><i class="fas fa-paper-plane"></i><span>Send Message</span></button>
+        <div class="form-status" id="formStatus"></div>
         <p class="form-note">Goes directly to my inbox 📬 — you'll get a reply soon.</p>
       </form>
     </div>
@@ -1083,7 +1081,6 @@ let showToast;
 
 /* VIBE SYSTEM */
 let heartsTimer = null;
-
 function applyVibe(g){
   document.documentElement.setAttribute('data-gender', g);
   localStorage.setItem('gender', g);
@@ -1093,7 +1090,6 @@ function applyVibe(g){
   $$('#vibeMenu button').forEach(b => b.classList.toggle('active', b.dataset.vibeVal === g));
   if(g === 'female'){ startHearts(); } else { stopHearts(); }
 }
-
 function startHearts(){
   stopHearts();
   heartsTimer = setInterval(() => {
@@ -1110,12 +1106,10 @@ function startHearts(){
     }
   }, 3000);
 }
-
 function stopHearts(){
   if(heartsTimer){ clearInterval(heartsTimer); heartsTimer = null; }
   document.querySelectorAll('.heart-float').forEach(h => h.remove());
 }
-
 window.applyVibe = applyVibe;
 window.startHearts = startHearts;
 window.stopHearts = stopHearts;
@@ -1125,11 +1119,8 @@ window.stopHearts = stopHearts;
   const overlay = $('#welcomeOverlay');
   if(!overlay) return;
   const saved = localStorage.getItem('gender');
-  if(!saved){
-    setTimeout(() => overlay.classList.add('show'), 600);
-  } else {
-    applyVibe(saved);
-  }
+  if(!saved){ setTimeout(() => overlay.classList.add('show'), 600); }
+  else { applyVibe(saved); }
   $$('.welcome-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const g = btn.dataset.gender;
@@ -1138,23 +1129,18 @@ window.stopHearts = stopHearts;
       showToast(g === 'female' ? '🌸 Cute Mode ON' : '⚡ Cool Mode ON', 'Hope you like it!');
     });
   });
-  $('#welcomeSkip').addEventListener('click', () => {
-    overlay.classList.remove('show');
-  });
+  $('#welcomeSkip').addEventListener('click', () => overlay.classList.remove('show'));
 })();
 
 /* VIBE SELECTOR */
 (function(){
   const selector = $('#vibeSelector'), menu = $('#vibeMenu');
   if(!selector) return;
-
   selector.querySelector('.selector-btn').addEventListener('click', e => {
     e.stopPropagation();
     menu.classList.toggle('open');
     $('#themeMenu').classList.remove('open');
-    $('#langMenu').classList.remove('open');
   });
-
   $$('#vibeMenu button').forEach(b => {
     b.addEventListener('click', () => {
       const v = b.dataset.vibeVal;
@@ -1197,25 +1183,10 @@ $('#year').textContent = new Date().getFullYear();
     localStorage.setItem('theme-mode', mode);
   }
   apply(localStorage.getItem('theme-mode') || 'auto');
-  selector.querySelector('.selector-btn').addEventListener('click', e => { e.stopPropagation(); themeMenu.classList.toggle('open'); $('#langMenu').classList.remove('open'); $('#vibeMenu').classList.remove('open'); });
+  selector.querySelector('.selector-btn').addEventListener('click', e => { e.stopPropagation(); themeMenu.classList.toggle('open'); $('#vibeMenu').classList.remove('open'); });
   $$('#themeMenu button').forEach(b => b.addEventListener('click', () => { apply(b.dataset.themeVal); themeMenu.classList.remove('open'); showToast('🎨 Theme', b.textContent.trim()); }));
   setInterval(() => { if(localStorage.getItem('theme-mode') === 'auto') apply('auto'); }, 5*60*1000);
-  document.addEventListener('click', () => { themeMenu.classList.remove('open'); $('#langMenu').classList.remove('open'); $('#vibeMenu').classList.remove('open'); });
-})();
-
-/* LANGUAGE */
-(function(){
-  const html = document.documentElement, langLabel = $('#langLabel'), langMenu = $('#langMenu'), selector = $('#langSelector');
-  function apply(lang){
-    html.setAttribute('data-lang', lang);
-    langLabel.textContent = lang === 'hi' ? 'हिं' : 'EN';
-    $$('[data-en]').forEach(el => { const v = el.getAttribute('data-' + lang); if(v) el.textContent = v; });
-    $$('#langMenu button').forEach(b => b.classList.toggle('active', b.dataset.langVal === lang));
-    localStorage.setItem('lang', lang);
-  }
-  apply(localStorage.getItem('lang') || 'en');
-  selector.querySelector('.selector-btn').addEventListener('click', e => { e.stopPropagation(); langMenu.classList.toggle('open'); $('#themeMenu').classList.remove('open'); $('#vibeMenu').classList.remove('open'); });
-  $$('#langMenu button').forEach(b => b.addEventListener('click', () => { apply(b.dataset.langVal); langMenu.classList.remove('open'); showToast('🌐 Language', b.textContent.trim()); }));
+  document.addEventListener('click', () => { themeMenu.classList.remove('open'); $('#vibeMenu').classList.remove('open'); });
 })();
 
 /* CURSOR */
@@ -1326,16 +1297,13 @@ $('#year').textContent = new Date().getFullYear();
     const catsSections = ['about','terminal','contact','interests'];
     return catsSections.includes(id) ? 'cat' : 'dog';
   }
-
   function setPet(pet){
     if(pet === currentPet) return;
     currentPet = pet;
     render();
   }
-
   function render(){
-    const svg = currentPet === 'dog' ? dogSVG(hue) : catSVG(hue);
-    inner.innerHTML = svg;
+    inner.innerHTML = currentPet === 'dog' ? dogSVG(hue) : catSVG(hue);
   }
   render();
 
@@ -1360,7 +1328,6 @@ $('#year').textContent = new Date().getFullYear();
     bubble.classList.add('show');
     setTimeout(() => bubble.classList.remove('show'), 1800);
   }
-
   let idleTimer;
   function setIdle(){
     clearTimeout(idleTimer);
@@ -1371,11 +1338,7 @@ $('#year').textContent = new Date().getFullYear();
     }, 10000 + Math.random() * 8000);
   }
   setIdle();
-
-  setInterval(() => {
-    hue = (hue + 15) % 360;
-    render();
-  }, 4000);
+  setInterval(() => { hue = (hue + 15) % 360; render(); }, 4000);
 
   const sections = $$('section[id]');
   setInterval(() => {
@@ -1388,15 +1351,13 @@ $('#year').textContent = new Date().getFullYear();
   }, 300);
 
   function animate(){
-    const tx = mx + 55;
-    const ty = my - 8;
+    const tx = mx + 55, ty = my - 8;
     nx += (tx - nx) * 0.08;
     ny += (ty - ny) * 0.08;
     const dx = nx - vx, dy = ny - vy;
     const speed = Math.sqrt(dx*dx + dy*dy);
     vx = nx; vy = ny;
-    const isRunning = speed > 3;
-    nunnu.classList.toggle('running', isRunning);
+    nunnu.classList.toggle('running', speed > 3);
     const isLeft = tx < nx - 2;
     nunnu.style.transform = `translate(${nx}px, ${ny}px) scaleX(${isLeft ? -1 : 1})`;
     if(speed > 15 && Math.random() < 0.04) showBubble('Whoa! 🚀');
@@ -1413,12 +1374,9 @@ $('#year').textContent = new Date().getFullYear();
 
 /* RETRO OS */
 (function(){
-  const os = $('#retroOS');
-  const desktop = $('#retroDesktop');
-  const startBtn = $('#retroStart');
-  const startMenu = $('#retroStartMenu');
-  let openWins = {};
-  let zIndex = 10;
+  const os = $('#retroOS'), desktop = $('#retroDesktop');
+  const startBtn = $('#retroStart'), startMenu = $('#retroStartMenu');
+  let openWins = {}, zIndex = 10;
 
   const contents = {
     resume: { title: 'My Resume', icon:'📄', html: `<h3>Yash Saini — Web Developer</h3><p><b>Role:</b> Web Developer Intern @ hiimx.com</p><p><b>Experience:</b> 7+ months</p><p><b>Education:</b> Class 12 · Senior Secondary</p><p><b>Location:</b> Jaipur, Rajasthan, India</p><p><b>Skills:</b> HTML5, CSS3, JavaScript, Kotlin, AI/LLM, UI/UX</p><p><b>Contact:</b> yashsaini0756@gmail.com</p>`},
@@ -1432,7 +1390,7 @@ $('#year').textContent = new Date().getFullYear();
   };
 
   function openWin(type){
-    if(openWins[type]){ const w = openWins[type]; w.style.zIndex = ++zIndex; return; }
+    if(openWins[type]){ openWins[type].style.zIndex = ++zIndex; return; }
     const data = contents[type];
     if(!data) return;
     const win = document.createElement('div');
@@ -1494,7 +1452,6 @@ $('#year').textContent = new Date().getFullYear();
     const rs = $('#rsmClock'); if(rs) rs.textContent = hh + ':' + mm;
     setTimeout(tick, 1000);
   }
-
   window.openRetroOS = function(){ os.classList.add('active'); tick(); showToast('🖥️ Windows 11 Mode', 'Double-click desktop icons'); };
   window.exitRetroOS = function(){ os.classList.remove('active'); Object.keys(openWins).forEach(t => closeRetroWindow(t)); showToast('👋 Welcome back', 'Modern site restored'); };
   $('#retroToggle').addEventListener('click', openRetroOS);
@@ -1910,17 +1867,8 @@ document.addEventListener('click', e => {
     if(c.action === 'retro'){ window.openRetroOS(); return; }
     if(c.action === 'game'){ window.openGame(); return; }
     if(c.action === 'nunnu'){ $('#nunnuToggle').click(); return; }
-    if(c.action === 'female' || c.action === 'male'){
-      applyVibe(c.action);
-      showToast(c.action === 'female' ? '🌸 Cute Mode' : '⚡ Cool Mode', 'Vibe switched!');
-      return;
-    }
-    if(c.action === 'reset-vibe'){
-      localStorage.removeItem('gender');
-      $('#welcomeOverlay').classList.add('show');
-      showToast('🔄 Welcome reset', 'Choose your vibe again');
-      return;
-    }
+    if(c.action === 'female' || c.action === 'male'){ applyVibe(c.action); showToast(c.action === 'female' ? '🌸 Cute Mode' : '⚡ Cool Mode', 'Vibe switched!'); return; }
+    if(c.action === 'reset-vibe'){ localStorage.removeItem('gender'); $('#welcomeOverlay').classList.add('show'); showToast('🔄 Welcome reset', 'Choose your vibe again'); return; }
     if(c.action === 'print'){ window.print(); return; }
     if(c.external){ window.open(c.href, '_blank'); return; }
     const t = document.querySelector(c.href);
@@ -1940,19 +1888,58 @@ document.addEventListener('click', e => {
   input.addEventListener('input', filter);
 })();
 
-/* CONTACT FORM */
+/* CONTACT FORM — Web3Forms */
 (function(){
-  const form = $('#contactForm');
+  const form = $('#contactForm'), statusEl = $('#formStatus');
   if(!form) return;
-  form.addEventListener('submit', () => {
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
     const btn = form.querySelector('button[type="submit"]');
+    const original = btn.innerHTML;
+    const n = form.name.value.trim(), em = form.email.value.trim(), msg = form.message.value.trim();
+
+    if(!n || !em || !msg){
+      statusEl.className = 'form-status error show';
+      statusEl.innerHTML = '<i class="fas fa-exclamation-circle"></i><span>Please fill in all fields.</span>';
+      return;
+    }
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){
+      statusEl.className = 'form-status error show';
+      statusEl.innerHTML = '<i class="fas fa-exclamation-circle"></i><span>Please enter a valid email.</span>';
+      return;
+    }
+
     btn.disabled = true;
     btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i><span>Sending...</span>';
+    statusEl.className = 'form-status';
+    statusEl.textContent = '';
+
+    try {
+      const formData = new FormData(form);
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData
+      });
+      const data = await res.json();
+
+      if(data.success){
+        statusEl.className = 'form-status success show';
+        statusEl.innerHTML = '<i class="fas fa-check-circle"></i><span>Message sent successfully! Yash will reply soon 🚀</span>';
+        showToast('✓ Message Sent!', 'Yash will reply soon 🚀');
+        form.reset();
+      } else {
+        throw new Error(data.message || 'Something went wrong');
+      }
+    } catch(err){
+      statusEl.className = 'form-status error show';
+      statusEl.innerHTML = '<i class="fas fa-times-circle"></i><span>Could not send. Please try WhatsApp or email instead.</span>';
+      showToast('⚠ Failed to send', 'Try WhatsApp or email');
+    } finally {
+      btn.disabled = false;
+      btn.innerHTML = original;
+      setTimeout(() => { statusEl.className = 'form-status'; }, 6000);
+    }
   });
-  if(location.search.includes('sent=1')){
-    setTimeout(() => showToast('✓ Message Sent!', 'Yash will reply soon 🚀'), 800);
-    history.replaceState({}, '', location.pathname);
-  }
 })();
 </script>
 </body>
