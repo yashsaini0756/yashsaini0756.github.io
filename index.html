@@ -735,7 +735,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:40px
       <div class="cert-name">YASH SAINI</div>
       <div class="cert-line">is now proudly and officially recognized as</div>
       <div class="cert-title">YOUR DADDY</div>
-      <div class="cert-body">In witness whereof, this certificate has been issued on the authority of the very person who typed <b>"papa"</b>.</div>
+      <div class="cert-body">In witness whereof, this certificate has been issued on the authority of the very person who typed <b>"truth"</b>.</div>
       <div class="cert-date">Issued: <span id="certDate"></span></div>
       <div class="cert-signs">
         <div class="cert-sign"><span>Yash Saini</span><small>Certified Daddy</small></div>
@@ -762,7 +762,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:40px
     <div class="egg-title">Secret Codes</div>
     <div class="egg-sub">Type a magic word to unlock something special</div>
     <input type="text" class="egg-input" id="eggInput" placeholder="Type here..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
-    <div class="egg-hints">Try: <b>yash</b> · <b>rohit</b> · <b>papa</b> · <b>game</b></div>
+    <div class="egg-hints">Try: <b>yash</b> · <b>rohit</b> · <b>truth</b> · <b>game</b></div>
     <button class="egg-submit" onclick="submitEgg()">✨ Unlock</button>
   </div>
 </div>
@@ -1900,7 +1900,7 @@ $('#year').textContent = new Date().getFullYear();
     about: { title: 'About Me', icon:'👤', html: `<h3>Who I am</h3><p>I'm Yash Saini, a 12th-class student from Jaipur, currently interning at hiimx.com.</p>`},
     skills: { title: 'Skills', icon:'⚙️', html: `<h3>My Skills</h3><p><b>Web:</b> HTML5, CSS3, JavaScript, UI/UX</p><p><b>AI:</b> LLM, Gemini, Voice, TTS</p><p><b>Hardware:</b> PC Cleaning, Thermal Paste</p>`},
     contact: { title: 'Contact', icon:'✉️', html: `<h3>Get in Touch</h3><p><b>WhatsApp:</b> <a href="https://wa.me/919772171731" target="_blank">Chat</a></p><p><b>Email:</b> <a href="mailto:yashsaini0756@gmail.com">yashsaini0756@gmail.com</a></p>`},
-    secret: { title: 'Secret Folder', icon:'🎁', html: `<h3>Easter eggs! 🎉</h3><p>✦ Type <b>yash</b> → surprise 💖<br>✦ Type <b>rohit</b> → 😈<br>✦ Type <b>papa</b> → 👑<br>✦ Type <b>game</b> → Snake</p>`},
+    secret: { title: 'Secret Folder', icon:'🎁', html: `<h3>Easter eggs! 🎉</h3><p>✦ Type <b>yash</b> → surprise 💖<br>✦ Type <b>rohit</b> → 😈<br>✦ Type <b>truth</b> → 👑<br>✦ Type <b>game</b> → Snake</p>`},
     snake: { title: 'Snake.exe', icon:'🐍', html: `<h3>Snake</h3><button class="retro-btn" onclick="closeRetroWindow('snake');openSnake()">🐍 Launch</button>`},
     memory: { title: 'Memory.exe', icon:'🧠', html: `<h3>Memory Match</h3><button class="retro-btn" onclick="closeRetroWindow('memory');openMemory()">🧠 Launch</button>`}
   };
@@ -1960,7 +1960,7 @@ $('#year').textContent = new Date().getFullYear();
   $('#retroToggle').addEventListener('click', openRetroOS);
 })();
 
-/* EASTER EGGS - YASH / ROHIT / PAPA */
+/* EASTER EGGS - YASH / ROHIT / truth */
 (function(){
   let buf = '', konamiBuf = '';
   const konami = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
@@ -1975,7 +1975,7 @@ $('#year').textContent = new Date().getFullYear();
 
     if(buf.endsWith('yash')){ buf = ''; yashMagic(); }
     if(buf.endsWith('rohit')){ buf = ''; rohitHorror(); }
-    if(buf.endsWith('papa')){ buf = ''; papaCertificate(); }
+    if(buf.endsWith('truth')){ buf = ''; truthCertificate(); }
     if(buf.endsWith('game')){ openSnake(); showToast('🎮 Game Mode', 'Snake launched!'); }
   });
 
@@ -2039,7 +2039,7 @@ $('#year').textContent = new Date().getFullYear();
     } catch(e){}
   }
 
-  function papaCertificate(){
+  function truthCertificate(){
     const cert = $('#certOverlay');
     if(!cert) return;
     const d = $('#certDate');
@@ -2063,7 +2063,7 @@ $('#year').textContent = new Date().getFullYear();
 
   window.yashMagic = yashMagic;
   window.rohitHorror = rohitHorror;
-  window.papaCertificate = papaCertificate;
+  window.truthCertificate = truthCertificate;
 })();
 
 /* EGG MODAL */
@@ -2083,11 +2083,11 @@ function submitEgg(){
   const ov = document.getElementById('eggOverlay');
   if(code === 'yash'){ ov.classList.remove('show'); yashMagic(); }
   else if(code === 'rohit'){ ov.classList.remove('show'); rohitHorror(); }
-  else if(code === 'papa'){ ov.classList.remove('show'); papaCertificate(); }
+  else if(code === 'truth'){ ov.classList.remove('show'); truthCertificate(); }
   else if(code === 'game' || code === 'snake'){ ov.classList.remove('show'); openSnake(); showToast('🎮 Game Mode', 'Snake.exe launched!'); }
   else if(code === 'memory'){ ov.classList.remove('show'); openMemory(); showToast('🧠 Memory Mode', 'Match the pairs!'); }
   else if(code === 'retro'){ ov.classList.remove('show'); openRetroOS(); showToast('🖥️ Windows 11', 'Retro mode on!'); }
-  else { showToast('❌ Unknown code', 'Try: yash, rohit, papa, game'); inp.value = ''; inp.focus(); }
+  else { showToast('❌ Unknown code', 'Try: yash, rohit, truth, game'); inp.value = ''; inp.focus(); }
 }
 
 /* Egg input Enter */
@@ -2478,7 +2478,7 @@ document.addEventListener('click', e => {
     {label:'🧠 Play Memory', sub:'Match pairs', icon:'fas fa-brain', action:'memory'},
     {label:'🖥️ Windows 11 Mode', sub:'Retro desktop', icon:'fas fa-desktop', action:'retro'},
     {label:'🐾 Toggle Pet', sub:'Hide/show', icon:'fas fa-dog', action:'nunnu'},
-    {label:'🔑 Secret Codes', sub:'yash / rohit / papa', icon:'fas fa-key', action:'egg'},
+    {label:'🔑 Secret Codes', sub:'yash / rohit / truth', icon:'fas fa-key', action:'egg'},
     {label:'🌸 Cute Mode', sub:'Pink theme', icon:'fas fa-heart', action:'female'},
     {label:'⚡ Cool Mode', sub:'Blue theme', icon:'fas fa-bolt', action:'male'},
     {label:'🔄 Reset Vibe', sub:'Show welcome again', icon:'fas fa-redo', action:'reset-vibe'},
